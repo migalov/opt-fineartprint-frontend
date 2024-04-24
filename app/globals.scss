@@ -1,0 +1,87 @@
+@import "./mixins";
+
+:root {
+	--primary-color: #78dcc7;
+	--dark-blue-color: #2d58a7;
+	--yellow-color: rgba(254, 226, 120, 1);
+	--yellow-color-opacity:  rgba(254, 226, 120, .4);
+	--red-color: #ee6867;
+	--gray-color: #f0f0f0;
+	--white-color: #fff;
+	--black-color: #000;
+	--dark-gray-color: #d9d9d9;
+	--blue-color: #266ef1;
+	--light-blue-color: #CEEDFF;
+	--green-color: #00C37D;
+
+  --primary-font-family: "Raleway", sans-serif;
+  --second-font-family: "Uber Move Text", sans-serif;
+  --third-font-family: "Inter", sans-serif;
+
+  --font-size: 14px;
+  --font-size-lg: 15px;
+  --font-size-xl: 16px;
+
+  --shadow-dropdown-menu: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  --shadow-dropdown-form-select: 0 4px 16px 0 rgba(0, 0, 0, 0.12);
+  --shadow-hint: 0 16px 48px 0 rgba(0, 0, 0, 0.22);
+
+  --default-transition: ease .5s;
+  
+}
+
+
+html {
+	font-family: var(--primary-font-family), var(--second-font-family),  var(--third-font-family), "Helvetica", "Arial", sans-serif;
+	font-size: var(--font-size);
+}
+
+* {
+	transition: var(--default-transition);
+}
+
+h1, .h1 {
+	font-size: 1.5rem;
+}
+
+h2, .h2 {
+	font-size: 1.25rem;
+}
+
+h3, .h3 {
+	font-size: 1.14rem;
+}
+
+h1, h2, h3 {
+	margin: 0;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a, a:visited {
+	color: var(--black-color);
+	text-decoration: none;
+	&:hover {
+		color: var(--primary-color);
+	}
+}
+
+button {
+	border: none;
+	outline: none;
+	font-family: inherit;
+}
+
+// :is(div, header):has( .container-grid) {
+// 	--gap: clamp(1rem, 6vw, 3rem);
+// 	--full: minmax(var(--gap), 1fr);
+// 	--content: min(50ch, 100% - var(--gap) * 2);
+
+// 	display: grid;
+// 	grid-template-columns: [full-start] var(--full) [content-start] var(--content) [content-end] var(--full) [full-end];
+// 	grid-template-areas: ". . content . .";
+// }

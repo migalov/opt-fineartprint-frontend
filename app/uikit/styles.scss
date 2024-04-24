@@ -1,0 +1,325 @@
+.ui-kit {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.content-grid {
+    --padding-inline: 2rem;
+    --content-max-width: 70ch;
+    // --breakout-max-width: 85ch;
+
+    // --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+    display: grid;
+    grid-template-columns:
+        [full-width-start] 1fr [content-start] 2rem [wrap-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width)) [wrap-end] 2rem [content-end] 1fr [full-width-start];
+    grid-gap: 1rem 0;
+
+    &>.content {
+        grid-column: content;
+    }
+
+    &>.wrap {
+        grid-column: wrap;
+    }
+
+    &>.full-width {
+        grid-column: full-width;
+        display: grid;
+        grid-template-columns: inherit;
+    }
+}
+
+.content-grid,
+.full-width {
+    &> :not(.breakout, .full-width) {
+        grid-column: content;
+    }
+}
+
+
+.bg-primary {
+    background-color: #fee278;
+}
+
+.opt-fap-menu-items {
+    display: flex;
+    align-items: center;
+    gap: .7em;
+    & li {
+        position: relative;
+
+        & input:checked[type="checkbox"] ~ .opt-fap-menu-items-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        & > label {
+            cursor: pointer;
+            &:hover {
+                color: var(--primary-color);
+            }
+        }
+    }
+    & li>img {
+        margin: 0 .25em 0 0;
+    }
+}
+
+
+.opt-fap-menu-items-dropdown {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 2em;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    padding: 1.4em 2.2em;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-dropdown-menu);
+    z-index: 1;
+    width: max-content;
+    border-radius: .7em;
+    & > li > a {
+        font-weight: 500;
+        &[href*="/logout"] {
+            color: var(--red-color);
+        }
+    }
+}
+
+.opt-fap-main-nav {
+    & ul {
+        display: flex;
+        align-items: center;
+        gap: 2.85em;
+
+        &>li {
+            &>a {
+                font-weight: 500;
+            }
+
+            &:hover>a {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.opt-fap-tags-list,
+.opt-fap-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.opt-fap-tag {
+    font-size: .85rem;
+    font-weight: 500;
+    display: inline-block;
+    padding: .7em 1em;
+    border-radius: .57em;
+    width: 8.7em;
+    text-align: center;
+
+    &--issued {
+        background-color: var(--primary-color);
+    }
+
+    &--payed {
+        background-color: var(--yellow-color);
+    }
+
+    &--in-production {
+        background-color: var(--light-blue-color);
+    }
+
+    &--ready-for-pickup,
+    &--in-delivery {
+        background-color: var(--green-color);
+        color: var(--white-color);
+    }
+
+    &--received {
+        background-color: var(--dark-gray-color);
+    }
+
+    &--canceled {
+        background-color: var(--red-color);
+        color: var(--white-color);
+    }
+}
+
+.opt-fap-button {
+    display: inline-block;
+    position: relative;
+    border-radius: .5em;
+    padding: 0.7em 0.9em;
+    background-color: var(--gray-color);
+    outline: 2px solid transparent;
+    cursor: pointer;
+
+    // & > label {
+    //     cursor: pointer;
+    // }
+    // &:has( > input:checked) {
+    //     background-color: transparent;
+    //     outline: 2px solid var(--primary-color);
+    //     font-weight: 500;
+    // }
+    &:hover:not(:disabled) {
+        outline: 2px solid var(--black-color);
+    }
+
+    &.active {
+        background-color: transparent;
+        outline: 2px solid var(--primary-color);
+        font-weight: 500;
+    }
+
+    &:disabled {
+        // background-color: inherit;
+        // color: inherit;
+        cursor: inherit;
+    }
+}
+
+.opt-fap-submit {
+    display: inline-block;
+    border-radius: .37em;
+    padding: 0.5em 2em;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    font-size: 1.42rem;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--primary-color);
+    }
+}
+
+.opt-fap-button__hint-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.opt-fap-pagination {
+    & h3 {
+        margin: 0 0 .64em;
+    }
+
+    & ul {
+        display: flex;
+        gap: 1rem;
+
+        & button {
+            aspect-ratio: 1/1;
+            width: 2.85em;
+        }
+    }
+}
+
+.opt-fap-table {
+
+    --table-radius: 8px;
+
+    border-radius: var(--table-radius);
+    overflow: hidden;
+    border: 1px solid var(--dark-gray-color);
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    & td {
+        background-color: var(--white-color);
+    }
+
+    & th, td {
+        border: 1px solid var(--dark-gray-color);
+        width: 25%;
+        padding: 2em;
+        text-align: center;
+    }
+
+    & th {
+        font-weight: 500;
+        background-color: var(--gray-color);
+    }
+
+    & tr th,
+    & tr td {
+        border-right: 1px solid var(--black-color);
+        border-bottom: 1px solid var(--black-color);
+    }
+
+    & tr th:first-child,
+    & tr td:first-child {
+        border-left: 1px solid var(--gray-color);
+    }
+
+    & tr th {
+        border-top: 1px solid var(--gray-color);
+    }
+
+    /* top-left border-radius */
+    & tr:first-child th:first-child {
+        border-top-left-radius:  var(--table-radius);
+    }
+
+    /* top-right border-radius */
+    & tr:first-child th:last-child {
+        border-top-right-radius:  var(--table-radius);
+    }
+
+    /* bottom-left border-radius */
+    & tr:last-child th:first-child {
+        border-bottom-left-radius:  var(--table-radius);
+    }
+
+    /* bottom-right border-radius */
+    & tr:last-child td:last-child {
+        border-bottom-right-radius:  var(--table-radius);
+    }
+
+    & .opt-fap-table__status {
+        font-weight: 500;
+    }
+    
+    & .opt-fap-table__status--success {
+        background: var(--green-color);
+    }
+    
+    & .opt-fap-table__status--error {
+        background: var(--red-color);
+        color: var(--white-color);
+    }
+
+}
+
+.message {
+    font-size: .85rem;
+}
+
+.message--error {
+    color: var(--red-color);
+}
+
+.window-message {
+    border-radius: 1.07em;
+    padding: .5em 1em;
+    & p {
+        font-size: .85em;
+    }
+}
+
+.window-message--warning {
+    background-color: var(--yellow-color-opacity);
+    border: 1px solid var(--yellow-color);
+}
+
+.hint-open {
+    
+}
