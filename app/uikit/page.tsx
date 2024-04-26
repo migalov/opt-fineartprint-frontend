@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"
 import "./styles.scss"
 
@@ -8,10 +10,23 @@ import clockIcon from "@/public/menu/clock.svg"
 import questionIcon from "@/public/question.svg"
 import Image from "next/image"
 import CustomRadio from "../components/CustomRadio"
+import Select from 'react-select';
+import { useState } from 'react';
+import CustomSingleSelect from "../components/CustomSingleSelect";
+import { ICustomSingleSelect } from "../components/ICustomSingleSelect.interface";
+
+const options:ICustomSingleSelect[] = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' },
+  ];
 
 const UIKit = () => {
 
   const rootClass = `opt-fap`;
+  
+
+
   return (
     <div className="ui-kit">
       <div className="content-grid">
@@ -37,9 +52,28 @@ const UIKit = () => {
                 <CustomRadio name="color-print" value={"4+0"} />
                 <CustomRadio name="color-print" value={"1+1"} />
                 <CustomRadio name="color-print" tooltip={`Печать в одну краску с одной стороны`} tooltipPosition={`right`} value={"1+0"} />
+
               </div>
             </div>
-          </div>     
+            <div className={`${rootClass}-calculator-parameter`}>
+              <h3 className={`${rootClass}-calculator-parameter__title`}>Материал</h3>
+              <div className={`${rootClass}-radio-row`}>
+                <CustomRadio tooltipPosition={`right`} name="material" value={"Офсетная бумага"} />
+                <CustomRadio name="material" value={"Мелованная бумага"} />
+                <CustomRadio name="material" value={"Картон"} />
+                <CustomRadio name="material" value={"Самоклейка"} />
+                <CustomSingleSelect
+                  options={options}
+                  placehoder={`Дизайнерская бумага`}
+                />
+                <CustomRadio name="material" value={"Бумага заказчика"} />
+              </div>
+            </div>
+          </div>
+          <div className={`${rootClass}-calculator-parameter`}>
+             
+          </div>
+             
         </form>
 
         <ul className={`${rootClass}-menu-items`}>
