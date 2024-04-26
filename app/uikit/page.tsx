@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link"
 import "./styles.scss"
 
@@ -9,14 +7,11 @@ import phoneIcon from "@/public/menu/phone.svg"
 import clockIcon from "@/public/menu/clock.svg"
 import questionIcon from "@/public/question.svg"
 import Image from "next/image"
-
-import FormUIKit from "./FormUIKit"
+import CustomRadio from "../components/CustomRadio"
 
 const UIKit = () => {
 
-  const rootClass = `opt-fap`
-
-
+  const rootClass = `opt-fap`;
   return (
     <div className="ui-kit">
       <div className="content-grid">
@@ -25,7 +20,27 @@ const UIKit = () => {
         <h2>Заголовок H2</h2>
         <h3>Заголовок H3</h3>
 
-        <FormUIKit />
+        <form action="">
+          <div className={`${rootClass}-calculator-parameters`}>
+            <div className={`${rootClass}-calculator-parameter`}>
+              <h3 className={`${rootClass}-calculator-parameter__title`}>Формат печати</h3>
+              <div className={`${rootClass}-radio-row`}>
+                <CustomRadio name="format-print" value={"500x700"} />
+                <CustomRadio name="format-print" value={"520x720"} />
+                <CustomRadio name="format-print" value={"385x425"} />
+              </div>
+            </div>
+            <div className={`${rootClass}-calculator-parameter`}>
+              <h3 className={`${rootClass}-calculator-parameter__title`}>Красочность печати</h3>
+              <div className={`${rootClass}-radio-row`}>
+                <CustomRadio tooltipPosition={`right`} name="color-print" value={"4+4"} />
+                <CustomRadio name="color-print" value={"4+0"} />
+                <CustomRadio name="color-print" value={"1+1"} />
+                <CustomRadio name="color-print" tooltip={`Печать в одну краску с одной стороны`} tooltipPosition={`right`} value={"1+0"} />
+              </div>
+            </div>
+          </div>     
+        </form>
 
         <ul className={`${rootClass}-menu-items`}>
           <li>
@@ -109,25 +124,6 @@ const UIKit = () => {
             </li>
           </ul>
         </nav>
-        <div className={`${rootClass}-buttons`}>
-          <button className={`${rootClass}-button`}><span>Кнопка</span></button>
-          <button className={`${rootClass}-button active`}><span>Кнопка (Активная)</span></button>
-          <button className={`${rootClass}-button`} disabled><span>Кнопка (Отключена)</span></button>
-          <button className={`${rootClass}-button`}>
-            <Image
-                className={`${rootClass}-button__hint-icon hint-open`}
-                width={11}
-                height={11}
-                src={questionIcon}
-                alt={`question`}
-            />
-            <span>Кнопка c подсказкой</span>
-        </button>
-        </div>
-
-        <div className={`${rootClass}-buttons`}>
-          <button className={`${rootClass}-submit`}>Оформить заказ</button>
-        </div>
         
         <ul className={`${rootClass}-tags-list`}>
           <li className={`${rootClass}-tag ${rootClass}-tag--issued`}>Оформлен</li>
