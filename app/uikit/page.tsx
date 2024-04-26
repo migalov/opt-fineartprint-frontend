@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"
 import "./styles.scss"
 
@@ -8,8 +10,13 @@ import clockIcon from "@/public/menu/clock.svg"
 import questionIcon from "@/public/question.svg"
 import Image from "next/image"
 import CustomRadio from "../components/CustomRadio"
+import CustomCheckbox from "../components/CustomCheckbox/CustomCheckbox"
+import { useState } from "react"
 
 const UIKit = () => {
+
+  const [rulesChecked, setRulesChecked] = useState();
+  const [mailChecked, setMailChecked] = useState();
 
   const rootClass = `opt-fap`;
   return (
@@ -38,6 +45,13 @@ const UIKit = () => {
                 <CustomRadio name="color-print" value={"1+1"} />
                 <CustomRadio name="color-print" tooltip={`Печать в одну краску с одной стороны`} tooltipPosition={`right`} value={"1+0"} />
               </div>
+            </div>
+            <div className={`${rootClass}-calculator-parameter`}>
+              <CustomCheckbox isChecked={rulesChecked} onChange={setRulesChecked} name={`subscribe`}>Я согласен на рассылку новостей</CustomCheckbox>
+              
+            </div>
+            <div className={`${rootClass}-calculator-parameter`}>
+              <CustomCheckbox isChecked={mailChecked} onChange={setMailChecked} name={`confirm`}>Я уведомлен что загруженные макеты содержат ошибки, но все равно хочу сделать заказ</CustomCheckbox>
             </div>
           </div>     
         </form>
