@@ -25,6 +25,7 @@ const CustomRadio = ({ ...props }) => {
                         width={11}
                         height={11}
                         src={iconQuestion}
+                        alt={``}
                     />
                     <span className={`tooltip-text ${props?.tooltipPosition && `tooltip-text--${props.tooltipPosition}`}`} >{props.tooltip}</span>
                 </>
