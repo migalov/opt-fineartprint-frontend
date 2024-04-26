@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link"
 import "./styles.scss"
 
@@ -9,12 +7,17 @@ import phoneIcon from "@/public/menu/phone.svg"
 import clockIcon from "@/public/menu/clock.svg"
 import questionIcon from "@/public/question.svg"
 import Image from "next/image"
+import CustomRadio from "../components/CustomRadio"
 
-import FormUIKit from "./FormUIKit"
+// import { RadioTile, RadioTileGroup, useMediaQuery } from 'rsuite';
+// import { Icon } from '@rsuite/icons';
+// import { VscLock, VscWorkspaceTrusted, VscRepo } from 'react-icons/vsc';
+
 
 const UIKit = () => {
 
-  const rootClass = `opt-fap`
+  const rootClass = `opt-fap`;
+  // const [isInline] = useMediaQuery('xl'); 
 
 
   return (
@@ -25,7 +28,33 @@ const UIKit = () => {
         <h2>Заголовок H2</h2>
         <h3>Заголовок H3</h3>
 
-        <FormUIKit />
+        <form action="">
+          <div className={`${rootClass}-calculator-parameter`}>
+            <h3 className={`${rootClass}-calculator-parameter__title`}>Формат печати</h3>
+            <div className={`${rootClass}-radio-row`}>
+              <CustomRadio name="print" value={"500x700"} />
+              <CustomRadio name="print" value={"520x720"} />
+              <CustomRadio name="print" value={"385x425"} />
+              <CustomRadio name="print" value={"500x700"} />
+              <CustomRadio name="print" value={"520x720"} />
+              <CustomRadio name="print" value={"385x425"} />
+              <CustomRadio name="print" value={"500x700"} />
+              <CustomRadio name="print" value={"520x720"} />
+              <CustomRadio name="print" value={"385x425"} />
+            </div>
+          </div>
+          
+        </form>
+
+
+
+        {/* <form action="" method="post">
+        <RadioTileGroup  inline={isInline} defaultValue="private" aria-label="Visibility Level">
+          <RadioTile label="Private" value="private"></RadioTile>
+          <RadioTile label="Internal" value="internal"></RadioTile>
+          <RadioTile label="Public" value="public"></RadioTile>
+        </RadioTileGroup>
+        </form> */}
 
         <ul className={`${rootClass}-menu-items`}>
           <li>

@@ -110,10 +110,21 @@
 }
 
 .opt-fap-tags-list,
-.opt-fap-buttons {
+.opt-fap-buttons,
+.opt-fap-radio-row {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
+}
+
+.opt-fap-calculator-parameter {
+    display: flex;
+    gap: 1em;
+}
+
+.opt-fap-calculator-parameter__title {
+    width: max-content;
+    margin: .5em 0 0;
 }
 
 .opt-fap-tag {
@@ -157,19 +168,21 @@
     display: inline-block;
     position: relative;
     border-radius: .5em;
-    padding: 0.7em 0.9em;
+    // padding: 0.7em 0.9em;
     background-color: var(--gray-color);
     outline: 2px solid transparent;
     cursor: pointer;
 
-    // & > label {
-    //     cursor: pointer;
-    // }
-    // &:has( > input:checked) {
-    //     background-color: transparent;
-    //     outline: 2px solid var(--primary-color);
-    //     font-weight: 500;
-    // }
+    & > label {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0.7em 0.9em;
+    }
+    &:has( > input:checked) {
+        background-color: transparent;
+        outline: 2px solid var(--primary-color);
+        font-weight: 500;
+    }
     &:hover:not(:disabled) {
         outline: 2px solid var(--black-color);
     }
