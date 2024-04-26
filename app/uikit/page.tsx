@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"
 import "./styles.scss"
 
@@ -8,8 +10,12 @@ import clockIcon from "@/public/menu/clock.svg"
 import questionIcon from "@/public/question.svg"
 import Image from "next/image"
 import CustomRadio from "../components/CustomRadio"
+import CustomCounter from "../components/CustomCounter/CustomCounter"
+import { useState } from "react";
 
 const UIKit = () => {
+
+  const [stripeCount, setStripeCount] = useState();
 
   const rootClass = `opt-fap`;
   return (
@@ -39,10 +45,31 @@ const UIKit = () => {
                 <CustomRadio name="color-print" tooltip={`Печать в одну краску с одной стороны`} tooltipPosition={`right`} value={"1+0"} />
               </div>
             </div>
+          </div> 
+          <div className={`${rootClass}-summarizing`}>
+              <CustomCounter
+                label={`Количество полос`}
+                name={`stripesCount`}
+                onChange={(newValue) => setStripeCount(newValue)}
+                minValue={1}
+                maxValue={100}
+                value={1}
+                step={1}
+              />
+              <CustomCounter
+                label={`Тираж`}
+                name={`stripesCount`}
+                onChange={(newValue) => setStripeCount(newValue)}
+                minValue={1}
+                maxValue={10000}
+                value={10}
+                step={10}
+              />
           </div>     
+            
         </form>
 
-        <ul className={`${rootClass}-menu-items`}>
+        {/* <ul className={`${rootClass}-menu-items`}>
           <li>
             <Link href={`/`}>О нас</Link>
           </li>
@@ -55,8 +82,8 @@ const UIKit = () => {
           <li>
             <Link href={`/`}>Новости</Link>
           </li>
-        </ul>
-        <ul className={`${rootClass}-menu-items`}>
+        </ul> */}
+        {/* <ul className={`${rootClass}-menu-items`}>
           <li>
             <input hidden id="profile" type="checkbox" />
             <label htmlFor="profile">Профиль</label>
@@ -110,8 +137,8 @@ const UIKit = () => {
             />
             <span>10:00-18:00 ПН-ПТ</span>
           </li>
-        </ul>
-        <nav className={`${rootClass}-main-nav`}>
+        </ul> */}
+        {/* <nav className={`${rootClass}-main-nav`}>
           <ul>
             <li>
               <Link href={`/`}>Калькулятор</Link>
@@ -123,9 +150,9 @@ const UIKit = () => {
               <Link href={`/`}>Доставка и оплата</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         
-        <ul className={`${rootClass}-tags-list`}>
+        {/* <ul className={`${rootClass}-tags-list`}>
           <li className={`${rootClass}-tag ${rootClass}-tag--issued`}>Оформлен</li>
           <li className={`${rootClass}-tag ${rootClass}-tag--payed`}>Оплачен</li>
           <li className={`${rootClass}-tag ${rootClass}-tag--in-production`}>В производстве</li>
@@ -133,9 +160,9 @@ const UIKit = () => {
           <li className={`${rootClass}-tag ${rootClass}-tag--in-delivery`}>В доставке</li>
           <li className={`${rootClass}-tag ${rootClass}-tag--received`}>Получен</li>
           <li className={`${rootClass}-tag ${rootClass}-tag--canceled`}>Отменен</li>
-        </ul>
+        </ul> */}
 
-        <div className={`${rootClass}-pagination`}>
+        {/* <div className={`${rootClass}-pagination`}>
             <h3>Листы</h3>
             <ul>
             {[...Array(10)].map((x, i) =>
@@ -145,9 +172,9 @@ const UIKit = () => {
             )}
                 
             </ul>
-        </div>
+        </div> */}
 
-        <table className={`${rootClass}-table`}>
+        {/* <table className={`${rootClass}-table`}>
             <tbody>
                 <tr>
                     <th>Параметр</th>
@@ -169,13 +196,13 @@ const UIKit = () => {
                 </tr>
             </tbody>
 
-        </table>
+        </table> */}
 
-        <p className="message message--error">Некоторые загруженные макеты не соотвествуют правилам формления</p>
+        {/* <p className="message message--error">Некоторые загруженные макеты не соотвествуют правилам формления</p>
         <div className="window-message window-message--warning">
             <p>Ставя галочку, я подтверждаю что: орфография и пунктуация текста верна; содержимое макета расположено верно.</p>
             <p>Я понимаю, что этот макет будет напечатан, КАК ОТОБРАЖЕНО ВЫШЕ (без вспомогательных линий), и что я не смогу внести в дальнейшем какие бы то ни были исправления в макет</p>
-        </div>
+        </div> */}
 
       </div>
       <aside>
