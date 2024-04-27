@@ -1,6 +1,7 @@
+import { ICustomCheckbox } from "./CustomCheckbox.interface"
 import styles from "./CustomCheckbox.module.scss"
 
-const CustomCheckbox = ({ children, name, isChecked, onChange }) => {
+const CustomCheckbox = ({ children, name, isChecked, onChange }:ICustomCheckbox) => {
   return (
     <label className={`${styles[`opt-fap-custom-checkbox-wrapper`]}`}>
       <input

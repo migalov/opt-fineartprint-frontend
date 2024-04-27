@@ -38,6 +38,7 @@ html {
 
 * {
 	transition: var(--default-transition);
+	transition-property: color, border, outline, background-color, opacity;
 }
 
 h1, .h1 {

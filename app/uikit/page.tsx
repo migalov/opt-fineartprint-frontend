@@ -13,9 +13,10 @@ import CustomRadio from "../components/CustomRadio"
 import CustomCheckbox from "../components/CustomCheckbox/CustomCheckbox"
 import Select from 'react-select';
 import CustomSingleSelect from "../components/CustomSingleSelect";
-import { ICustomSingleSelect } from "../components/ICustomSingleSelect.interface";
-import { useState } from "react";
 
+import { useState } from "react";
+import CustomCounter from "../components/CustomCounter/CustomCounter"
+import { ICustomSingleSelect } from "../components/ICustomSingleSelect.interface";
 const options:ICustomSingleSelect[] = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
@@ -27,10 +28,9 @@ const UIKit = () => {
 
   const [rulesChecked, setRulesChecked] = useState();
   const [mailChecked, setMailChecked] = useState();
+  const [stripeCount, setStripeCount] = useState();
 
   const rootClass = `opt-fap`;
-  
-
 
   return (
     <div className="ui-kit">
@@ -39,52 +39,6 @@ const UIKit = () => {
         <h1>UI Kit (H1 Title)</h1>
         <h2>Заголовок H2</h2>
         <h3>Заголовок H3</h3>
-
-        <form action="">
-          <div className={`${rootClass}-calculator-parameters`}>
-            <div className={`${rootClass}-calculator-parameter`}>
-              <h3 className={`${rootClass}-calculator-parameter__title`}>Формат печати</h3>
-              <div className={`${rootClass}-radio-row`}>
-                <CustomRadio name="format-print" value={"500x700"} />
-                <CustomRadio name="format-print" value={"520x720"} />
-                <CustomRadio name="format-print" value={"385x425"} />
-              </div>
-            </div>
-            <div className={`${rootClass}-calculator-parameter`}>
-              <h3 className={`${rootClass}-calculator-parameter__title`}>Красочность печати</h3>
-              <div className={`${rootClass}-radio-row`}>
-                <CustomRadio tooltipPosition={`right`} name="color-print" value={"4+4"} />
-                <CustomRadio name="color-print" value={"4+0"} />
-                <CustomRadio name="color-print" value={"1+1"} />
-                <CustomRadio name="color-print" tooltip={`Печать в одну краску с одной стороны`} tooltipPosition={`right`} value={"1+0"} />
-
-              </div>
-            </div>
-            <div className={`${rootClass}-calculator-parameter`}>
-              <CustomCheckbox isChecked={rulesChecked} onChange={setRulesChecked} name={`subscribe`}>Я согласен на рассылку новостей</CustomCheckbox>
-              
-            </div>
-            <div className={`${rootClass}-calculator-parameter`}>
-              <CustomCheckbox isChecked={mailChecked} onChange={setMailChecked} name={`confirm`}>Я уведомлен что загруженные макеты содержат ошибки, но все равно хочу сделать заказ</CustomCheckbox>
-            </div>
-          </div>     
-          <div className={`${rootClass}-calculator-parameter`}>
-             <h3 className={`${rootClass}-calculator-parameter__title`}>Материал</h3>
-              <div className={`${rootClass}-radio-row`}>
-                <CustomRadio tooltipPosition={`right`} name="material" value={"Офсетная бумага"} />
-                <CustomRadio name="material" value={"Мелованная бумага"} />
-                <CustomRadio name="material" value={"Картон"} />
-                <CustomRadio name="material" value={"Самоклейка"} />
-                <CustomSingleSelect
-                  options={options}
-                  placehoder={`Дизайнерская бумага`}
-                />
-                <CustomRadio name="material" value={"Бумага заказчика"} />
-              </div>
-          </div>
-             
-        </form>
-
         <ul className={`${rootClass}-menu-items`}>
           <li>
             <Link href={`/`}>О нас</Link>
@@ -167,7 +121,6 @@ const UIKit = () => {
             </li>
           </ul>
         </nav>
-        
         <ul className={`${rootClass}-tags-list`}>
           <li className={`${rootClass}-tag ${rootClass}-tag--issued`}>Оформлен</li>
           <li className={`${rootClass}-tag ${rootClass}-tag--payed`}>Оплачен</li>
@@ -177,54 +130,110 @@ const UIKit = () => {
           <li className={`${rootClass}-tag ${rootClass}-tag--received`}>Получен</li>
           <li className={`${rootClass}-tag ${rootClass}-tag--canceled`}>Отменен</li>
         </ul>
-
-        <div className={`${rootClass}-pagination`}>
-            <h3>Листы</h3>
-            <ul>
-            {[...Array(10)].map((x, i) =>
-                <li key={i}>
-                    <button className={`${rootClass}-button ${i === 0 && "active"}`}>{i}</button>
-                </li>
-            )}
-                
-            </ul>
-        </div>
-
-        <table className={`${rootClass}-table`}>
-            <tbody>
-                <tr>
-                    <th>Параметр</th>
-                    <th>Требуемый</th>
-                    <th>В вашем файле</th>
-                    <th>Статус</th>
-                </tr>
-                <tr>
-                    <th>Формат файла</th>
-                    <td>PDF</td>
-                    <td>PDF</td>
-                    <td className={`${rootClass}-table__status ${rootClass}-table__status--success`}>OK</td>
-                </tr>
-                <tr>
-                    <th>Цветовое пространство</th>
-                    <td>CMYK</td>
-                    <td>CMYK</td>
-                    <td className={`${rootClass}-table__status ${rootClass}-table__status--error`}>Ошибка</td>
-                </tr>
-            </tbody>
-
-        </table>
-
-        <p className="message message--error">Некоторые загруженные макеты не соотвествуют правилам формления</p>
-        <div className="window-message window-message--warning">
-            <p>Ставя галочку, я подтверждаю что: орфография и пунктуация текста верна; содержимое макета расположено верно.</p>
-            <p>Я понимаю, что этот макет будет напечатан, КАК ОТОБРАЖЕНО ВЫШЕ (без вспомогательных линий), и что я не смогу внести в дальнейшем какие бы то ни были исправления в макет</p>
-        </div>
-
+        <form>
+          <div className={`${rootClass}-calculator-parameters`}>
+            <div className={`${rootClass}-calculator-parameter`}>
+              <h3 className={`${rootClass}-calculator-parameter__title`}>Формат печати</h3>
+              <div className={`${rootClass}-radio-row`}>
+                <CustomRadio name="format-print" value={"500x700"} />
+                <CustomRadio name="format-print" value={"520x720"} />
+                <CustomRadio name="format-print" value={"385x425"} />
+              </div>
+            </div>
+            <div className={`${rootClass}-calculator-parameter`}>
+              <h3 className={`${rootClass}-calculator-parameter__title`}>Красочность печати</h3>
+              <div className={`${rootClass}-radio-row`}>
+                <CustomRadio tooltipPosition={`right`} name="color-print" value={"4+4"} />
+                <CustomRadio name="color-print" value={"4+0"} />
+                <CustomRadio name="color-print" value={"1+1"} />
+                <CustomRadio name="color-print" tooltip={`Печать в одну краску с одной стороны`} tooltipPosition={`right`} value={"1+0"} />
+              </div>
+            </div>
+            <div className={`${rootClass}-calculator-parameter`}>
+              <CustomCheckbox isChecked={rulesChecked} onChange={setRulesChecked} name={`subscribe`}>Я согласен на рассылку новостей</CustomCheckbox>
+            </div>
+            <div className={`${rootClass}-calculator-parameter`}>
+              <CustomCheckbox isChecked={mailChecked} onChange={setMailChecked} name={`confirm`}>Я уведомлен что загруженные макеты содержат ошибки, но все равно хочу сделать заказ</CustomCheckbox>
+            </div>
+            <div className={`${rootClass}-calculator-parameter`}>
+             <h3 className={`${rootClass}-calculator-parameter__title`}>Материал</h3>
+              <div className={`${rootClass}-radio-row`}>
+                <CustomRadio tooltipPosition={`right`} name="material" value={"Офсетная бумага"} />
+                <CustomRadio name="material" value={"Мелованная бумага"} />
+                <CustomRadio name="material" value={"Картон"} />
+                <CustomRadio name="material" value={"Самоклейка"} />
+                <CustomSingleSelect
+                  options={options}
+                  placehoder={`Дизайнерская бумага`}
+                />
+                <CustomRadio name="material" value={"Бумага заказчика"} />
+              </div>
+            </div>
+            <div className={`${rootClass}-summarizing`}>
+              <CustomCounter
+                label={`Количество полос`}
+                name={`stripesCount`}
+                onChange={(newValue: any) => setStripeCount(newValue)}
+                minValue={1}
+                maxValue={100}
+                value={1}
+                step={1}
+              />
+              <CustomCounter
+                label={`Тираж`}
+                name={`stripesCount`}
+                onChange={(newValue: any) => setStripeCount(newValue)}
+                minValue={1}
+                maxValue={10000}
+                value={10}
+                step={10}
+              />
+          
+          
+            </div>
+            <div className={`${rootClass}-pagination`}>
+              <h3>Листы</h3>
+              <ul>
+              {[...Array(10)].map((x, i) =>
+                  <li key={i}>
+                      <button className={`${rootClass}-button ${i === 0 && "active"}`}>{i}</button>
+                  </li>
+              )}
+              </ul>
+            </div>
+          
+            <table className={`${rootClass}-table`}>
+              <tbody>
+                  <tr>
+                      <th>Параметр</th>
+                      <th>Требуемый</th>
+                      <th>В вашем файле</th>
+                      <th>Статус</th>
+                  </tr>
+                  <tr>
+                      <th>Формат файла</th>
+                      <td>PDF</td>
+                      <td>PDF</td>
+                      <td className={`${rootClass}-table__status ${rootClass}-table__status--success`}>OK</td>
+                  </tr>
+                  <tr>
+                      <th>Цветовое пространство</th>
+                      <td>CMYK</td>
+                      <td>CMYK</td>
+                      <td className={`${rootClass}-table__status ${rootClass}-table__status--error`}>Ошибка</td>
+                  </tr>
+              </tbody>
+            </table>
+            <p className="message message--error">Некоторые загруженные макеты не соотвествуют правилам формления</p>
+            <div className="window-message window-message--warning">
+                <p>Ставя галочку, я подтверждаю что: орфография и пунктуация текста верна; содержимое макета расположено верно.</p>
+                <p>Я понимаю, что этот макет будет напечатан, КАК ОТОБРАЖЕНО ВЫШЕ (без вспомогательных линий), и что я не смогу внести в дальнейшем какие бы то ни были исправления в макет</p>
+            </div>
+            </div>
+          </form>
+          
       </div>
-      <aside>
-
-      </aside>
-    </div>
+      </div>
   )
 }
 

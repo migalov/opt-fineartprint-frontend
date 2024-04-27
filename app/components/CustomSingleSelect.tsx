@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Select from 'react-select'
 
-const CustomSingleSelect = ({ options, placehoder }) => {
+const CustomSingleSelect = ({ options, placehoder }: any) => {
 
-const [selectedOption, setSelectedOption] = useState("");
+const [selectedOption, setSelectedOption]:any = useState("");
 
   return (
     <Select
