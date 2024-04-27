@@ -1,0 +1,56 @@
+.opt-fap-counter {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.opt-fap-counter-wrap {
+    display: flex;
+    background-color: var(--gray-color);
+    border: 2px solid var(--gray-color);
+    border-radius: 4px;
+}
+.opt-fap-counter-buttons-group, .opt-fap-counter-input {
+    flex: 1;
+}
+.opt-fap-counter-input {
+    appearance: none;
+    border: none;
+    outline: none;
+    text-align: center;
+    padding: 0.75em 0px;
+    margin: 0;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &[type=number] {
+        -moz-appearance: textfield;
+    }
+}
+.opt-fap-counter-buttons-group {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.opt-fap-counter__button {
+    display: flex;
+    align-items: center;
+    background-color: var(--white-color);
+    width: 24px;
+    border-radius: 3px;
+    aspect-ratio: 1/1;
+    border: 1px solid transparent;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid var(--primary-color);
+        & svg line {
+            stroke: var(--primary-color);
+        }
+    }
+    & svg line {
+        stroke-width: 2px;
+    }
+}
