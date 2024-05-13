@@ -1,0 +1,59 @@
+:root {
+    --font-family: "Helvetica Neue LT W1G", sans-serif;
+    --second-family: "Uber Move Text", sans-serif;
+    --third-family: "Inter", sans-serif;
+
+    --primary: #78dcc7;
+	--add-blue: #2d58a7;
+	--add-yellow: #fee278;
+	--add-red: #ee6867;
+	--gray: #f0f0f0;
+	--white: #fff;
+	--black: #000;
+	--dark-gray: #d9d9d9;
+	--ui-blue: #266ef1;
+}
+
+* {
+    transition: ease .3s;
+    transition-property: opacity, color, background-color, outline;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+
+#__nuxt {
+    min-height: inherit;
+    display: inherit;
+    flex-direction: inherit;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    margin-inline: auto;
+}
+
+ol, ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+[data-grid-area] {
+    display: flex;
+    align-items: center;
+}
