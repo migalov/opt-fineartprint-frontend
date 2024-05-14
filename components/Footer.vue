@@ -1,6 +1,6 @@
 <template>
   <footer class="optfap-footer">
-    <div class="optfap-footer-wrap container grid gap-[1rem] p-4">
+    <div class="optfap-footer-wrap container grid gap-[1rem] md:gap-x-[2rem] p-4">
       <div class="flex flex-col gap-4" data-grid-area="social">
         <h4 class="text-sm font-medium hidden md:block">Мы в социальных сетях</h4>
         <ul class="flex items-center gap-2">
@@ -24,7 +24,7 @@
       </div>
       <Navigation
         class="flex items-center"
-        ul_class="gap-1 sm:gap-4 flex flex-col sm:flex-row"
+        ul_class="gap-1 sm:gap-4 flex flex-col flex-wrap sm:flex-row"
         link_class="font-medium"
         data-grid-area="main_menu"
         :items="data?.data[3]?.attributes?.items"
@@ -90,6 +90,10 @@
     grid-template-areas: "main_menu" "social" "contacts" "bottom_menu";
     @include sm {
       grid-template-areas: "main_menu main_menu" "contacts social" "bottom_menu bottom_menu";
+    }
+    @include md {
+      grid-template-areas: "social main_menu contacts" "bottom_menu bottom_menu bottom_menu";
+      // grid-template-areas: "social main_menu main_menu" "contacts bottom_menu bottom_menu";
     }
   }
   [data-grid-area=main_menu] {
