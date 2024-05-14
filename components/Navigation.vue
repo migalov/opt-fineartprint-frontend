@@ -1,11 +1,11 @@
 <template>
-  <nav :data-grid-area="id">
+  <nav>
     <ul :class="`${ul_class}`">
       <ItemMenu v-for="item in items"
         :icon_url="item?.icon?.data?.attributes?.url"
         :url="item.custom_url"
         :title="item.title"
-        :size="size"
+        :link_class="link_class"
       />
     </ul>
   </nav>
@@ -25,6 +25,9 @@
     ul_class: {
       type: String
     },
+    link_class: {
+      type: String
+    },
     items: {
       type: Array,
       default: [
@@ -34,7 +37,7 @@
         },
         {
           "url": "/2",
-          "title": "Пункт меню 2"
+          "title": "Пункт sменю 2"
         },
         {
           "url": "",
@@ -49,11 +52,5 @@
 </script>
 
 <style scoped>
-  .right {
-    display: flex;
-    justify-content: end;
-  }
-  ul {
-    display: flex;
-  }
+
 </style>

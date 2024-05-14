@@ -16,7 +16,7 @@
 
 * {
     transition: ease .3s;
-    transition-property: opacity, color, background-color, outline;
+    transition-property: opacity, color, background-color, outline, stroke, fill, text-decoration;
 }
 
 body {
@@ -49,6 +49,10 @@ ol, ul {
 }
 
 a {
-    color: inherit;
+    color: var(--primary);
     text-decoration: none;
+    &:hover {
+        color: var(--primary);
+        text-decoration: underline;
+    }
 }

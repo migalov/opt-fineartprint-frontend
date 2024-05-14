@@ -4,12 +4,12 @@
       <div class="optfap-desktop-menus flex gap-4 sm:gap-7 md:gap-10">
         <Logo />
         <div class="gap-1 sm:gap-3 md:gap-[.5rem]">
-          <Navigation :ul_class="`gap-4`" :items="data?.data[1]?.attributes?.items" size="text-xs" class="flex" :data-grid-area="1" />
-          <Navigation :ul_class="`gap-4`" :items="data?.data[2]?.attributes?.items" size="text-xs" class="flex sm:justify-end" :data-grid-area="2" />
-          <Navigation :ul_class="`gap-4`" :items="data?.data[5]?.attributes?.items" size="text-xs" class="flex sm:justify-end" :data-grid-area="3" />
+          <Navigation ul_class="flex gap-4" :items="data?.data[1]?.attributes?.items" link_class="text-xs font-medium" class="flex" :data-grid-area="1" />
+          <Navigation ul_class="flex gap-4" :items="data?.data[2]?.attributes?.items" link_class="text-xs font-medium" class="flex sm:justify-end" :data-grid-area="2" />
+          <Navigation ul_class="flex flex-col sm:flex-row gap-2 md:gap-4" :items="data?.data[5]?.attributes?.items" link_class="text-xs font-medium" class="flex sm:justify-end" :data-grid-area="3" />
         </div>
       </div>
-      <Navigation :ul_class="`sm:gap-6 md:gap-8 lg:gap-10`" :items="data?.data[0]?.attributes?.items" size="text-sm" class="" :data-grid-area="4" />
+      <Navigation ul_class="flex sm:gap-6 md:gap-8 lg:gap-10" :items="data?.data[0]?.attributes?.items" link_class="text-sm font-medium" class="" :data-grid-area="4" />
     </div>
   </header>
 </template>
@@ -32,7 +32,7 @@
       },
     }
   };
-  
+
   const { data } = useAsyncData('data', async () => {
     const response = await fetch(`${API_BACKEND_DOMAIN}/api/navigations?${qs.stringify(queryNavigationsObject)}`);
     return response.json()
@@ -41,13 +41,13 @@
 </script>
 
 <style lang="scss">
-
+  @import "~/assets/styles/mixins/breakpoints.scss";
   .optfap-header {
     border-bottom: 1px solid var(--gray);
   }
 
   .optfap-desktop-menus {
-    @import "~/assets/styles/mixins/breakpoints.scss";
+    
     & > div {
       flex: 1;
       display: grid;
