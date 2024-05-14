@@ -1,8 +1,9 @@
 <template>
   <nav :data-grid-area="id">
-    <ul>
+    <ul :class="`${ul_class}`">
       <ItemMenu v-for="item in items"
-        :url="item.url"
+        :icon_url="item?.icon?.data?.attributes?.url"
+        :url="item.custom_url"
         :title="item.title"
         :size="size"
       />
@@ -16,6 +17,12 @@
       type: String
     },
     size: {
+      type: String
+    },
+    icon_url: {
+      type: String
+    },
+    ul_class: {
       type: String
     },
     items: {
@@ -48,7 +55,5 @@
   }
   ul {
     display: flex;
-    justify-content: center;
-    gap: 1em
   }
 </style>

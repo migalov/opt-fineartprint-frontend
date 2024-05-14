@@ -8,9 +8,15 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/image',
     '@nuxtjs/style-resources',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtus/nuxt-localtunnel'
   ],
   image: {
     // Options
+  },
+  runtimeConfig: {
+    public: {
+      api_base: process.env.NUXT_PUBLIC_DOMAIN_BACKEND,
+    }
   }
 })
