@@ -1,5 +1,5 @@
 <template>
-  <nav :class="position == `right` && `right`" :data-grid-area="id">
+  <nav :data-grid-area="id">
     <ul>
       <ItemMenu v-for="item in items"
         :url="item.url"
@@ -16,7 +16,7 @@
       type: String
     },
     size: {
-
+      type: String
     },
     items: {
       type: Array,

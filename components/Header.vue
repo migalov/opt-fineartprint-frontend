@@ -4,12 +4,12 @@
       <div class="optfap-desktop-menus flex bg-amber-300">
         <Logo />
         <div class="gap-1 sm:gap-3 md:gap-[.5rem]">
-          <NavigationsMini size="xs" class="bg-sky-200" :data-grid-area="1" />
-          <NavigationsMini size="xs" class="lg:justify-end bg-sky-300" :data-grid-area="2" />
-          <NavigationsMini size="xs" class="bg-sky-400" :data-grid-area="3" />
+          <NavigationsMini size="text-xs" class="bg-sky-200" :data-grid-area="1" />
+          <NavigationsMini size="text-xs" class="lg:justify-end bg-sky-300" :data-grid-area="2" />
+          <NavigationsMini size="text-xs" class="bg-sky-400" :data-grid-area="3" />
         </div>
       </div>
-      <NavigationsMain :data-grid-area="4" />
+      <NavigationsMini size="text-sm" class="bg-sky-400" :data-grid-area="4" />
     </div>
     
   </header>
