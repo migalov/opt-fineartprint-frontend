@@ -16,7 +16,7 @@
 
 * {
     transition: ease .3s;
-    transition-property: opacity, color, background-color, outline, stroke, fill, text-decoration;
+    transition-property: opacity, color, background-color, outline, stroke, fill, text-decoration, top, left, right, bottom;
 }
 
 body {
