@@ -1,7 +1,6 @@
 <template>
   <div class="flex items-center gap-5 relative">
     <input
-      class="p-[.55em] rounded-[.55em]"
       :type="type"
       :name="name"
       :id="name"
