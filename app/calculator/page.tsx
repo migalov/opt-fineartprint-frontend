@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { useCounterStore } from '../store';
 import axios from 'axios';
 import globalApi from '../globalApi';
-import CalculatorParameter from '../_components/CalculatorParameter';
+import CalculatorParameter from '../_components/Calculator/CalculatorParameter';
 import TitleH1 from '../_components/TitleH1';
 import TitleH2 from '../_components/TitleH2';
-import CalculatorCounter from '../_components/CalculatorCounter';
+import CalculatorCounter from '../_components/Calculator/CalculatorCounter';
 import DateReady from '../_components/DateReady';
 import TotalCost from '../_components/TotalCost';
-import CustomCheckbox from '../_components/CustomCheckbox';
+import CustomCheckbox from '../_components/CustomFields/CustomCheckbox';
 import СonditionsProcessingPersonalData from '../_components/СonditionsProcessingPersonalData';
 
 const Calculator = () => {
@@ -52,7 +52,7 @@ const Calculator = () => {
                     }  
                 </div>
                 <div className="w-full mx-auto flex flex-col gap-4">
-                <div className="shadow-default p-6 rounded-15 flex flex-col gap-4">
+                <div className="sticky top-6 shadow-default p-6 rounded-15 flex flex-col gap-4">
                     <TitleH2>Параметры заказа</TitleH2>
                     <ul>
                     <li className="flex items-center justify-between text-h3">Формат печати: 500х700 мм</li>
@@ -82,7 +82,7 @@ const Calculator = () => {
                         date={"17.04.24"}
                     />
                     <TotalCost cost={3090} />
-                    <a href="#" className="w-full inline-block bg-black text-white font-bold text-2xl text-center py-4 rounded-15">Оформить заказ</a>
+                    <a href="/step2" className="w-full inline-block bg-black text-white font-bold text-2xl text-center py-4 rounded-15">Оформить заказ</a>
                     <div>
                         <label className="flex items-start  gap-4" id="accept">
                             <CustomCheckbox id={"accept"} />

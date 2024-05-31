@@ -26,9 +26,16 @@ const config: Config = {
       "dark-gray": "#d9d9d9",
       "ui-blue": "#266ef1",
       "add-blue": "#2d58a7",
+      "transparent": "transparent"
     },
     boxShadow: {
       "default": "0 4px 15px 0 rgba(0, 0, 0, 0.2);"
+    },
+    borderRadius: {
+      "5": "5px",
+      "8": "8px",
+      "12": "12px",
+      "15": "15px"
     },
     fontSize: {
       "h1": "1.7em",
@@ -36,7 +43,6 @@ const config: Config = {
       "h3": "1.14em",
       "message": "0.85em"
     }
-  },
-  plugins: [],
+  }
 };
 export default config;

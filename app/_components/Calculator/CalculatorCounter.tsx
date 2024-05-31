@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Minus from './VectorIcons/Minus'
-import Plus from './VectorIcons/Plus'
-import ButtonCounter from './Buttons/ButtonCounter'
+import Minus from '../VectorIcons/Minus'
+import Plus from '../VectorIcons/Plus'
+import ButtonCounter from '../Buttons/ButtonCounter'
 
 
 const CalculatorCounter = ({ title, name, step, currentValue, decrementClick, incrementClick, min }: any) => {

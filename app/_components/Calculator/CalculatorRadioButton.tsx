@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CalculatorRadioButton = ({ name, input }: any) => {
+const CalculatorRadioButton = ({ name, input, value, type = "radio" }: any) => {
   return (
     <input
         className="
@@ -19,10 +19,11 @@ const CalculatorRadioButton = ({ name, input }: any) => {
             p-4
             hover:font-medium
             checked:font-medium
+            bg-origin-padding
         "
-        type="radio"
+        type={type}
         name={name}
-        value={input?.title}
+        value={input?.title ? input.title : value}
     />
   )
 }
