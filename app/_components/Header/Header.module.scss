@@ -1,0 +1,26 @@
+@import '../../mixins.scss';
+.wrapMenus {
+    grid-template-areas: "area-1 area-2" "area-3 area-3";
+}
+.menus {
+    flex: 1;
+    display: grid;
+    grid-template-areas: "area-1" "area-2" "area-3";
+    & > [data-grid-area="1"] {
+        grid-area: area-1;
+    }
+    & > [data-grid-area="2"] {
+        grid-area: area-2;
+        & > ul {
+        display: flex;
+        justify-content: end;
+        }
+    }
+    & > [data-grid-area="3"] {
+        grid-area: area-3;
+    }
+
+    @include md {
+        grid-template-areas: "area-1 area-2" "area-3 area-3";
+    }
+}

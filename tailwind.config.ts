@@ -13,6 +13,12 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontSize: {
+        "h1": "1.7em",
+        "h2": "1.42em",
+        "h3": "1.14em",
+        "message": "0.85em"
+      }
     },
     colors: {
       "primary": "#78dcc7",
@@ -36,12 +42,6 @@ const config: Config = {
       "8": "8px",
       "12": "12px",
       "15": "15px"
-    },
-    fontSize: {
-      "h1": "1.7em",
-      "h2": "1.42em",
-      "h3": "1.14em",
-      "message": "0.85em"
     }
   }
 };

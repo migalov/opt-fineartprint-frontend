@@ -1,0 +1,32 @@
+@import "../../mixins.scss";
+
+  .footer {
+
+    & a:hover svg :is(circle) {
+      stroke: var(--primary);
+      fill: var(--primary);
+    }
+  }
+
+  .footerWrap {
+    grid-template-areas: "main_menu" "social" "contacts" "bottom_menu";
+    @include sm {
+      grid-template-areas: "main_menu main_menu" "contacts social" "bottom_menu bottom_menu";
+    }
+    @include md {
+      grid-template-areas: "social main_menu contacts" "bottom_menu bottom_menu bottom_menu";
+    }
+    &[data-grid-area=main_menu] {
+        grid-area: main_menu;
+    }
+    &[data-grid-area=social] {
+        grid-area: social;
+    }
+    &[data-grid-area=contacts] {
+        grid-area: contacts;
+    }
+    &[data-grid-area=bottom_menu] {
+        grid-area: bottom_menu;
+    }
+  }
+  
