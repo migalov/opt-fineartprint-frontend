@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import TitleH2 from './TitleH2'
+import TitleH2 from '../TitleH2'
 
 const PreviewDocument = ({ src }: any) => {
   return (

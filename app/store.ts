@@ -13,9 +13,11 @@ type CounterStore = {
     decrementNumberLanes: any;
     incrementCirculation: any;
     decrementCirculation: any;
+    step: number
 }
 
 export const useCounterStore = create<CounterStore>((set) => ({
+    step: 1,
     count: 0,
     calculationOptions: [],
     numberLanes: 1,
