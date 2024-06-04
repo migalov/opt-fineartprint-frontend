@@ -10,6 +10,7 @@ import CustomTextarea from '../_components/CustomFields/CustomTextarea'
 import CustomSelect from '../_components/CustomFields/CustomSelect'
 import TitleH2 from '../_components/TitleH2'
 import CalculatorRadioButton from '../_components/Calculator/CalculatorRadioButton'
+import InputTextField from '../_components/Form/TextField'
 
 const StepFifth = () => {
   return (
@@ -17,6 +18,7 @@ const StepFifth = () => {
         <TitleH1>Ваш заказ</TitleH1>
         <div className='grid grid-cols-[2fr_1fr] gap-8'>
             <form className='flex flex-col gap-6'>
+
                 <TableRoot>
                         <thead>
                             <tr className="bg-gray">
@@ -48,18 +50,18 @@ const StepFifth = () => {
                         </tbody>
                 </TableRoot>
                 <TitleH2>Контактные данные получателя</TitleH2>
-                <fieldset>
-                    <CustomInput
-                        label="ФИО"
-                        name="fullName"
+                <fieldset className='flex flex-col gap-4'>
+                    <InputTextField
+                        id={'fullName'}
+                        label={'ФИО'}
                     />
-                    <CustomInput
+                    <InputTextField
                         label="Телефон"
-                        name="phone"
+                        id="phone"
                     />
-                    <CustomInput
+                    <InputTextField
                         label="Email"
-                        name="email"
+                        id="email"
                     />
                     <CustomTextarea />
                 </fieldset>
@@ -84,9 +86,48 @@ const StepFifth = () => {
                         ]}
                     />
                 </fieldset>
-                <div>
-                    <h3>Реквизиты</h3>
-                </div>
+                <TitleH2>Реквизиты</TitleH2>
+                <fieldset className='flex flex-col gap-4'>
+                    <CustomInput
+                        label="ИНН"
+                        name="individualTaxpayerNumber"
+                    />
+                    <CustomInput
+                        label="КПП"
+                        name="codeReason"
+                    />
+                    <CustomInput
+                        label="БИК"
+                        name="bankIdentificationCode"
+                    />
+                    <CustomInput
+                        label="Р/счёт"
+                        name="checkingAccount"
+                    />
+                    <CustomInput
+                        label="КС/счет"
+                        name="correspondentAccount"
+                    />
+                </fieldset>
+                <TitleH2>Способы доставки</TitleH2>
+                <fieldset className='flex flex-wrap gap-4'>
+                    <CustomInput
+                        label="Улица"
+                        name="street"
+                        classNames="flex-2 w-full"
+                    />
+                    <CustomInput
+                        label="Дом"
+                        name="home"
+                        classNames="flex-1"
+                    />
+                    <CustomInput
+                        label="Корпус"
+                        name="partHome"
+                        classNames="flex-1"
+                    />
+                </fieldset>
+                
                 
             </form>
 

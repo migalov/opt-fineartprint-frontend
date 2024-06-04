@@ -1,10 +1,11 @@
 import React from 'react'
+import cn from 'classnames'
 
-const CustomInput = ({ type = "text", name, label }: any) => {
+const CustomInput = ({ type = "text", name, label, classNames = '' }: any) => {
   return (
     <label
         htmlFor="email"
-        className="relative block overflow-hidden rounded-md border border-dark-gray px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 rounded-8"
+        className={cn(classNames, "relative block overflow-hidden rounded-md border border-dark-gray px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 rounded-8")}
     >
         <input
             required
